@@ -1,0 +1,624 @@
+<?xml version="1.0" ?>
+<robot name="Midibot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Midibot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Midibot_description)/urdf/Midibot.trans" />
+<xacro:include filename="$(find Midibot_description)/urdf/Midibot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.020579056020415792 -0.0001486147836372605 0.1975130872761347" rpy="0 0 0"/>
+    <mass value="1.5985541201943978"/>
+    <inertia ixx="0.027017" iyy="0.040459" izz="0.047759" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_wheel_assembly_1">
+  <inertial>
+    <origin xyz="-0.004706898017685979 -0.0012499416207377725 -0.03640860803536895" rpy="0 0 0"/>
+    <mass value="0.162918194890341"/>
+    <inertia ixx="0.000676" iyy="9.4e-05" izz="0.000603" ixy="-0.0" iyz="-0.0" ixz="-7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.175473 -0.001268 -0.102512" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/back_wheel_assembly_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.175473 -0.001268 -0.102512" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/back_wheel_assembly_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_motor_1">
+  <inertial>
+    <origin xyz="0.01545196096836738 0.024104526430751144 -0.015560182232193825" rpy="0 0 0"/>
+    <mass value="0.21860163557626178"/>
+    <inertia ixx="7.4e-05" iyy="6e-05" izz="7.4e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034654 0.104598 -0.084781" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/r_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034654 0.104598 -0.084781" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/r_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_wheel_assembly_1">
+  <inertial>
+    <origin xyz="-0.029361115777051618 -0.006318304871245156 -0.038482927271003164" rpy="0 0 0"/>
+    <mass value="0.1803446311837346"/>
+    <inertia ixx="9.6e-05" iyy="0.000607" izz="0.000534" ixy="-8e-06" iyz="-5e-06" ixz="-3.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.082 0.11 -0.102511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/r_wheel_assembly_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.082 0.11 -0.102511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/r_wheel_assembly_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_wheel_assembly_1">
+  <inertial>
+    <origin xyz="-0.025547121933726644 0.008300704080804716 -0.03848291653520117" rpy="0 0 0"/>
+    <mass value="0.18034452293632197"/>
+    <inertia ixx="9.6e-05" iyy="0.000607" izz="0.000534" ixy="8e-06" iyz="5e-06" ixz="-3.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.078186 -0.109386 -0.102511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/l_wheel_assembly_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.078186 -0.109386 -0.102511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/l_wheel_assembly_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="usonic_1_1">
+  <inertial>
+    <origin xyz="-0.02527119212559692 2.112100437851039e-06 0.0003426719265425676" rpy="0 0 0"/>
+    <mass value="0.009711358075138893"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="3e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.184604 -0.020854 -0.110602" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.184604 -0.020854 -0.110602" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="usonic_2_1">
+  <inertial>
+    <origin xyz="0.000459972254831964 8.131468337940762e-05 0.02527247259527457" rpy="0 0 0"/>
+    <mass value="0.009710991765417426"/>
+    <inertia ixx="3e-06" iyy="2e-06" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.182706 -0.050775 -0.116511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.182706 -0.050775 -0.116511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="usonic_3_1">
+  <inertial>
+    <origin xyz="0.025271606436942512 -0.0002436966418929709 0.0004446795527320302" rpy="0 0 0"/>
+    <mass value="0.009711358075138895"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="3e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.143371 -0.0211 -0.1105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.143371 -0.0211 -0.1105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="usonic_4_1">
+  <inertial>
+    <origin xyz="-0.0004045358269312016 3.7308171883361496e-05 0.02427150769252831" rpy="0 0 0"/>
+    <mass value="0.009711358075129135"/>
+    <inertia ixx="3e-06" iyy="2e-06" izz="2e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.141593 -0.036819 -0.116511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.141593 -0.036819 -0.116511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="usonic_5_1">
+  <inertial>
+    <origin xyz="8.344960959936337e-05 -0.00042160759312886986 0.0242712665509619" rpy="0 0 0"/>
+    <mass value="0.009711358075126256"/>
+    <inertia ixx="2e-06" iyy="3e-06" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.053871 -0.117054 -0.11651" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.053871 -0.117054 -0.11651" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="usonic_6_1">
+  <inertial>
+    <origin xyz="-9.856579269974103e-05 0.0006310086165823015 0.025271538281197603" rpy="0 0 0"/>
+    <mass value="0.009711358075134601"/>
+    <inertia ixx="2e-06" iyy="3e-06" izz="2e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.053689 0.115895 -0.116511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.053689 0.115895 -0.116511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/usonic_6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_led_1">
+  <inertial>
+    <origin xyz="-0.06741634943841221 0.002808291454637832 0.006696212504542665" rpy="0 0 0"/>
+    <mass value="0.03213973164658444"/>
+    <inertia ixx="1e-06" iyy="8.9e-05" izz="8.9e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.047414 -0.124852 -0.106105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/l_led_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.047414 -0.124852 -0.106105" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/l_led_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_led_1">
+  <inertial>
+    <origin xyz="-0.07452776388442002 -0.0028086943375418283 0.006518202139503132" rpy="0 0 0"/>
+    <mass value="0.032139731646584395"/>
+    <inertia ixx="1e-06" iyy="8.9e-05" izz="8.9e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.054525 0.125148 -0.106283" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/r_led_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.054525 0.125148 -0.106283" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/r_led_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="u_plexy_1">
+  <inertial>
+    <origin xyz="-0.12965221614258654 -0.1076705780932062 0.002500106697937987" rpy="0 0 0"/>
+    <mass value="0.38071259758302256"/>
+    <inertia ixx="0.001536" iyy="0.002933" izz="0.004467" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.109 -0.108 -0.292511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/u_plexy_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.109 -0.108 -0.292511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/u_plexy_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lidar_1">
+  <inertial>
+    <origin xyz="-0.0001525741312681482 0.0004387728735925061 -0.021969448779762202" rpy="0 0 0"/>
+    <mass value="0.4959399724993396"/>
+    <inertia ixx="0.00025" iyy="0.000249" izz="0.000329" ixy="1e-06" iyz="-2e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.028652 -0.00833 -0.292511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/Lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.028652 -0.00833 -0.292511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/Lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="b_plexy_1">
+  <inertial>
+    <origin xyz="0.048851751393288956 0.11671868807801487 0.012095388661055098" rpy="0 0 0"/>
+    <mass value="0.570655471400955"/>
+    <inertia ixx="0.002258" iyy="0.003982" izz="0.005968" ixy="0.000283" iyz="-0.000146" ixz="0.000145"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.074984 0.109232 -0.122511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/b_plexy_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.074984 0.109232 -0.122511" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/b_plexy_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="2.4514781650455952e-05 -0.013722072334343804 -4.833001829712691e-07" rpy="0 0 0"/>
+    <mass value="0.08103288760796198"/>
+    <inertia ixx="5.6e-05" iyy="0.000102" izz="5.6e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00127 0.133598 -0.047729" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.00127 0.133598 -0.047729" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="2.451246905774639e-05 0.013721434070295885 -4.770319518079824e-07" rpy="0 0 0"/>
+    <mass value="0.08103210920221238"/>
+    <inertia ixx="5.6e-05" iyy="0.000102" izz="5.6e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00127 -0.134967 -0.047729" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.00127 -0.134967 -0.047729" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fr_bumper_1">
+  <inertial>
+    <origin xyz="-0.002229619671174743 -0.04638139535357301 0.00601475769967702" rpy="0 0 0"/>
+    <mass value="0.015438468980248714"/>
+    <inertia ixx="1.4e-05" iyy="1.4e-05" izz="2.8e-05" ixy="-8e-06" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.143371 0.07051 -0.112092" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/fr_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.143371 0.07051 -0.112092" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/fr_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fl_bumper_1">
+  <inertial>
+    <origin xyz="0.046802506031386776 -0.002221211198695172 0.005934753680772495" rpy="0 0 0"/>
+    <mass value="0.01543846996302933"/>
+    <inertia ixx="1.4e-05" iyy="1.4e-05" izz="2.8e-05" ixy="8e-06" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.094244 -0.118852 -0.112172" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/fl_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.094244 -0.118852 -0.112172" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/fl_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="br_bumper_1">
+  <inertial>
+    <origin xyz="-0.04966724627279795 0.0022208083972446446 0.005855749406100605" rpy="0 0 0"/>
+    <mass value="0.015438469963029304"/>
+    <inertia ixx="1.4e-05" iyy="1.4e-05" izz="2.8e-05" ixy="8e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.132637 0.119148 -0.112251" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/br_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.132637 0.119148 -0.112251" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/br_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bl_bumper_1">
+  <inertial>
+    <origin xyz="-0.04204383440836723 -0.0022212117409603493 0.0058447485347652706" rpy="0 0 0"/>
+    <mass value="0.015438468980248685"/>
+    <inertia ixx="1.4e-05" iyy="1.4e-05" izz="2.8e-05" ixy="-8e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.14026 -0.118852 -0.112262" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/bl_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.14026 -0.118852 -0.112262" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/bl_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l-motor_1">
+  <inertial>
+    <origin xyz="0.01545196096836712 -0.02410514345657698 -0.015560182189373523" rpy="0 0 0"/>
+    <mass value="0.21860163557626142"/>
+    <inertia ixx="7.4e-05" iyy="6e-05" izz="7.4e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034654 -0.105967 -0.084781" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/l-motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034654 -0.105967 -0.084781" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Midibot_description/meshes/l-motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="back_wheel_body" type="fixed">
+  <origin xyz="-0.175473 0.001268 0.102512" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="back_wheel_assembly_1"/>
+</joint>
+
+<joint name="right_motor" type="fixed">
+  <origin xyz="-0.116654 0.005402 -0.01773" rpy="0 0 0"/>
+  <parent link="r_wheel_assembly_1"/>
+  <child link="r_motor_1"/>
+</joint>
+
+<joint name="right_wheel_body" type="fixed">
+  <origin xyz="0.082 -0.11 0.102511" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="r_wheel_assembly_1"/>
+</joint>
+
+<joint name="left_wheel_body" type="fixed">
+  <origin xyz="0.078186 0.109386 0.102511" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="l_wheel_assembly_1"/>
+</joint>
+
+<joint name="bu_body" type="fixed">
+  <origin xyz="-0.184604 0.020854 0.110602" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="usonic_1_1"/>
+</joint>
+
+<joint name="b1u_body" type="fixed">
+  <origin xyz="-0.182706 0.050775 0.116511" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="usonic_2_1"/>
+</joint>
+
+<joint name="fu_body" type="fixed">
+  <origin xyz="0.143371 0.0211 0.1105" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="usonic_3_1"/>
+</joint>
+
+<joint name="fu1_body" type="fixed">
+  <origin xyz="0.141593 0.036819 0.116511" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="usonic_4_1"/>
+</joint>
+
+<joint name="lu_body" type="fixed">
+  <origin xyz="-0.053871 0.117054 0.11651" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="usonic_5_1"/>
+</joint>
+
+<joint name="ru_body" type="fixed">
+  <origin xyz="-0.053689 -0.115895 0.116511" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="usonic_6_1"/>
+</joint>
+
+<joint name="ll_body" type="fixed">
+  <origin xyz="0.047414 0.124852 0.106105" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="l_led_1"/>
+</joint>
+
+<joint name="rl_body" type="fixed">
+  <origin xyz="0.054525 -0.125148 0.106283" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="r_led_1"/>
+</joint>
+
+<joint name="up_body" type="fixed">
+  <origin xyz="0.109 0.108 0.292511" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="u_plexy_1"/>
+</joint>
+
+<joint name="l_u" type="fixed">
+  <origin xyz="-0.137652 -0.09967 0.0" rpy="0 0 0"/>
+  <parent link="u_plexy_1"/>
+  <child link="Lidar_1"/>
+</joint>
+
+<joint name="bp_body" type="fixed">
+  <origin xyz="-0.074984 -0.109232 0.122511" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="b_plexy_1"/>
+</joint>
+
+<joint name="r_wheel" type="continuous">
+  <origin xyz="-0.08327 -0.023598 -0.054782" rpy="0 0 0"/>
+  <parent link="r_wheel_assembly_1"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="l_wheel" type="continuous">
+  <origin xyz="-0.079456 0.025581 -0.054782" rpy="0 0 0"/>
+  <parent link="l_wheel_assembly_1"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="flb_body" type="fixed">
+  <origin xyz="0.143371 -0.07051 0.112092" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="fr_bumper_1"/>
+</joint>
+
+<joint name="frb_body" type="fixed">
+  <origin xyz="0.094244 0.118852 0.112172" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="fl_bumper_1"/>
+</joint>
+
+<joint name="brb_body" type="fixed">
+  <origin xyz="-0.132637 -0.119148 0.112251" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="br_bumper_1"/>
+</joint>
+
+<joint name="blb_body" type="fixed">
+  <origin xyz="-0.14026 0.118852 0.112262" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="bl_bumper_1"/>
+</joint>
+
+<joint name="left_motor" type="fixed">
+  <origin xyz="-0.11284 -0.003419 -0.01773" rpy="0 0 0"/>
+  <parent link="l_wheel_assembly_1"/>
+  <child link="l-motor_1"/>
+</joint>
+
+</robot>
